@@ -15,6 +15,7 @@ function ProjectNavbarScreen() {
           <h2> Welcome To Projects</h2>
 
         <MyButton size='M' onClick={OpenFirstProject} text="First Project"/>
+        <MyButton size='M' onClick={()=>{navigate('/second')}} text="Second Project"/>
       
     </div>
   );
