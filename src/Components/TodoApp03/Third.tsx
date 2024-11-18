@@ -1,43 +1,25 @@
-import React, { useState } from 'react'
-
-const Third = () => {
-     const [Form,setForm]=useState({
-        title:"",
-        desc:""
-     })
-     const onChangeHandle = (e:React.ChangeEvent<HTMLInputElement>) =>setForm({...Form,[e.target.name]:e.target.value});
-
-     const handleSubmit = () =>{}
+import React from 'react'
+import { Link } from 'react-router-dom'
+const Third:React.FC= () => {
   return (
-    <div className="p-6 bg-gray-100 rounded-lg shadow-lg max-w-md mx-auto">
-     <h2 className="text-2xl font-bold text-gray-800 mb-4 font-serif text-center">Add A New TODO</h2>
-    <form action="" className="space-y-4">
-      <input 
-        type="text" 
-        name="title" 
-        value={Form.title} 
-        onChange={onChangeHandle} 
-        className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        placeholder="Enter title"
-      />
-      <input 
-        type="text" 
-        name="desc" 
-        value={Form.desc} 
-        onChange={onChangeHandle} 
-        className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        placeholder="Enter description"
-      />
-       <button 
-      type="button" 
-      onClick={handleSubmit} 
-      className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-    >
-      Submit
-    </button>
-    </form>
-  </div>
-  
+    <>
+     
+<h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">We invest in the world’s potential</h1>
+<p className="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+  <Link to="/third/create" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+     Create Todo
+    <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+  </svg>
+</Link>
+<Link to="/third/display" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+     Show List
+    <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+  </svg>
+</Link>
+</>
+
   )
 }
 
