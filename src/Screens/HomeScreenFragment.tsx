@@ -2,23 +2,21 @@ import { useNavigate } from "react-router-dom";
 import MyButton from "../ui/MyButton";
 
 
-function ProjectNavbarScreen() {
+function HomeScreenFragment() {
   const navigate=useNavigate();
 
-  const OpenFirstProject=()=>{
-      navigate('/first')
-  }
  
   return (
-    <div className="w-screen min-h-screen overflow-x-hidden">
+     <>
 
           <h2> Welcome To Projects</h2>
 
-        <MyButton size='M' onClick={OpenFirstProject} text="First Project"/>
+        <MyButton size='M' onClick={()=>{navigate('/first')}} text="First Project"/>
         <MyButton size='M' onClick={()=>{navigate('/second')}} text="Second Project"/>
+        <MyButton size='M' onClick={()=>{navigate('/third')}} text="Third Project"/>
       
-    </div>
+    </>
   );
 }
 
-export default ProjectNavbarScreen;
+export default HomeScreenFragment;
