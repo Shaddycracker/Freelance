@@ -1,10 +1,7 @@
-import { atom, useRecoilState } from "recoil";
-
+import { useRecoilState } from "recoil";
+import {ColorState} from './Color.Atom.ts';
 const Second = () => {
-  const ColorState = atom({
-    key: "CounterValue",
-    default: "#000",
-  });
+ 
 
   const [value, setValue] = useRecoilState(ColorState);
 

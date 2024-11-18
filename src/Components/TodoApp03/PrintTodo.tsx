@@ -12,7 +12,7 @@ const PrintTodo:React.FC = () => {
     )
  }
   return (
-    <div>
+    <div className='m-4 flex gap-10px flex-wrap'>
          {Todo.map((item)=>{
             return <TodoItem key={item.id} todo={item}/>
          })}

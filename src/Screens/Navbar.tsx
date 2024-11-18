@@ -9,6 +9,8 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, Outlet } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { ColorState } from "../Components/Color02/Color.Atom";
 const navigation = [
   { name: "Dashboard", href: "/", current: true },
   { name: "Value State", href: "/first", current: false },
@@ -16,19 +18,21 @@ const navigation = [
   { name: "To Do", href: "/third", current: false },
 ];
 
+
 // function classNames(...classes) {
 //   return classes.filter(Boolean).join(' ')
 // }
 
 export default function Example() {
+    const value=useRecoilValue(ColorState);
   return (
     <div className="w-screen min-h-screen overflow-x-hidden flex flex-col justify-center">
-      <Disclosure as="nav" className="bg-gray-800">
+      <Disclosure as="nav" style={{backgroundColor:value,opacity:'0.9'}}>
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               {/* Mobile menu button*/}
-              <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+              <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 ">
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon
@@ -45,7 +49,7 @@ export default function Example() {
               <div className="flex shrink-0 items-center">
                 <img
                   alt="Your Company"
-                  src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+                  src="https://static.vecteezy.com/system/resources/previews/044/300/318/large_2x/lion-head-logo-mascot-free-png.png"
                   className="h-8 w-auto"
                 />
               </div>
@@ -56,7 +60,7 @@ export default function Example() {
                       key={item.name}
                       to={item.href}
                       className={
-                        "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium "
+                        "text-gray-300 rounded-md px-3 py-2 text-sm font-medium "
                       }
                     >
                       {item.name}
@@ -78,7 +82,7 @@ export default function Example() {
               {/* Profile dropdown */}
               <Menu as="div" className="relative ml-3">
                 <div>
-                  <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                  <MenuButton className={`relative flex rounded-ful text-sm `} >
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">Open user menu</span>
                     <img
@@ -141,7 +145,7 @@ export default function Example() {
         </DisclosurePanel>
       </Disclosure>
 
-       <div className="flex-1 ml-10 mr-10">
+       <div className="flex-1 pl-10 pr-10" style={{backgroundColor:`${value}40`}}>
         <Outlet />
       </div>
     </div>

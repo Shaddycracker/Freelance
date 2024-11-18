@@ -1,4 +1,7 @@
 import React from 'react'
+import { useRecoilValue } from 'recoil'
+import { ColorState } from '../Components/Color02/Color.Atom'
+
 
 interface ButtonType{
     text:string,
@@ -7,7 +10,9 @@ interface ButtonType{
 }
 
 const MyButton:React.FC<ButtonType> = ({text,onClick,size}) => {
-  return ( <button className={`${size==='S'?"h-4 w-fit":size==='M'?"h-8 w-full":"h-12 w-full"} bg-cyan-700 flex justify-center hover:bg-cyan-900 items-center text-white p-1 border-2 border-black text-2xl font-bold max-w-96`} onClick={onClick}>{text}</button>
+  const value=useRecoilValue(ColorState);
+
+  return ( <button style={{backgroundColor:value}} className={`${size==='S'?"h-4 w-fit":size==='M'?"h-8 w-full":"h-12 w-full"} flex justify-center items-center text-white p-1 border-2 border-black text-2xl font-bold max-w-96`} onClick={onClick}>{text}</button>
   )
 }
 
